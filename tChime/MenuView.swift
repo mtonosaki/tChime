@@ -9,21 +9,38 @@ import Foundation
 import SwiftUI
 
 struct MenuView: View {
+    let width = 200.0
+    let height = 110.0
+    
     var body: some View {
-        VStack {
+        ZStack {
+            // HEADER Caption
             Text("tChime - No1")
+                .frame(width: self.width, height: self.height, alignment: .topLeading)
+                .padding(8)
+            
+            // Quit Button
             Button() {
-                NSApplication.shared.terminate(self)
+                NSApplication.shared.terminate(nil)
+//                NSApp.terminate(self)
             } label: {
-                Image(systemName: "clear")
-                Text("Quit")
+                Label("Quit", systemImage: "clear")
             }
-        }.frame(width: 200, height: 110)
+                .buttonStyle(MenuButtonStyle())
+                .frame(width: self.width, height: self.height, alignment: .bottomTrailing)
+                .padding(8)
+                .keyboardShortcut("Q")
+        }
     }
 }
 
-struct MenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        MenuView()
+struct MenuButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding(7)
+            .background(BrandTheme.buttonBg)
+            .foregroundColor(BrandTheme.buttonText)
+            .clipShape(RoundedRectangle(cornerSize: CGSize(width: 7, height: 7)))
+            .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
 }

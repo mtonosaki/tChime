@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E19349AB2BB8D47700122258 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19349AA2BB8D47700122258 /* MenuView.swift */; };
+		E19349AF2BB928F300122258 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19349AE2BB928F300122258 /* Colors.xcassets */; };
+		E19349B12BB9295D00122258 /* BrandTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19349B02BB9295D00122258 /* BrandTheme.swift */; };
 		E1B5864E2BB7877900BE4ED1 /* tChimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B5864D2BB7877900BE4ED1 /* tChimeApp.swift */; };
 		E1B586522BB7877A00BE4ED1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1B586512BB7877A00BE4ED1 /* Assets.xcassets */; };
 		E1B586552BB7877A00BE4ED1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1B586542BB7877A00BE4ED1 /* Preview Assets.xcassets */; };
@@ -15,6 +17,8 @@
 
 /* Begin PBXFileReference section */
 		E19349AA2BB8D47700122258 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		E19349AE2BB928F300122258 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		E19349B02BB9295D00122258 /* BrandTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandTheme.swift; sourceTree = "<group>"; };
 		E1B5864A2BB7877900BE4ED1 /* tChime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tChime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B5864D2BB7877900BE4ED1 /* tChimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tChimeApp.swift; sourceTree = "<group>"; };
 		E1B586512BB7877A00BE4ED1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,11 +56,13 @@
 		E1B5864C2BB7877900BE4ED1 /* tChime */ = {
 			isa = PBXGroup;
 			children = (
+				E1B586532BB7877A00BE4ED1 /* Preview Content */,
 				E1B5864D2BB7877900BE4ED1 /* tChimeApp.swift */,
 				E19349AA2BB8D47700122258 /* MenuView.swift */,
+				E19349B02BB9295D00122258 /* BrandTheme.swift */,
 				E1B586512BB7877A00BE4ED1 /* Assets.xcassets */,
+				E19349AE2BB928F300122258 /* Colors.xcassets */,
 				E1B586562BB7877A00BE4ED1 /* tChime.entitlements */,
-				E1B586532BB7877A00BE4ED1 /* Preview Content */,
 			);
 			path = tChime;
 			sourceTree = "<group>";
@@ -127,6 +133,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E19349AF2BB928F300122258 /* Colors.xcassets in Resources */,
 				E1B586552BB7877A00BE4ED1 /* Preview Assets.xcassets in Resources */,
 				E1B586522BB7877A00BE4ED1 /* Assets.xcassets in Resources */,
 			);
@@ -139,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E19349B12BB9295D00122258 /* BrandTheme.swift in Sources */,
 				E19349AB2BB8D47700122258 /* MenuView.swift in Sources */,
 				E1B5864E2BB7877900BE4ED1 /* tChimeApp.swift in Sources */,
 			);
