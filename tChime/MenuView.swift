@@ -10,7 +10,15 @@ import SwiftUI
 
 struct MenuView: View {
     var body: some View {
-        Text("Hello, tChime!")
+        VStack {
+            Text("tChime - No1")
+            Button() {
+                NSApplication.shared.terminate(self)
+            } label: {
+                Image(systemName: "clear")
+                Text("Quit")
+            }
+        }.frame(width: 200, height: 110)
     }
 }
 

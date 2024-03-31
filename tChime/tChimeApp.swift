@@ -9,18 +9,41 @@ import SwiftUI
 
 @main
 struct tChimeApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegete.self) var delegate
+    
     var body: some Scene {
-        MenuBarExtra {
-            MenuView()
-        } label: {
-            let image: NSImage = {
-                let ratio = $0.size.height / $0.size.width
-                $0.size.height = 18
-                $0.size.width = 18 / ratio
-                return $0
-            }(NSImage(named: "MenuIcon")!)
-            Image(nsImage: image)
+        Settings {
         }
-        .menuBarExtraStyle(.window)
+    }
+}
+
+class AppDelegete: NSObject, NSApplicationDelegate {
+    var statusBarItem: NSStatusItem!
+    var popover = NSPopover()
+    
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        popover.behavior = .transient
+        popover.contentViewController = NSHostingController(rootView: MenuView())
+        self.statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.variableLength))
+        
+        guard let button = self.statusBarItem.button else { return }
+        let image: NSImage = {
+            let ratio = $0.size.height / $0.size.width
+            $0.size.height = 18
+            $0.size.width = 18 / ratio
+            return $0
+        }(NSImage(named: "MenuIcon")!)
+        button.image = image
+        button.action = #selector(menuButtonAction(sender:))
+    }
+    
+    @objc func menuButtonAction(sender: AnyObject) {
+        guard let button = self.statusBarItem.button else { return }
+        if self.popover.isShown {
+            self.popover.performClose(sender)
+        } else {
+            self.popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+            self.popover.contentViewController?.view.window?.makeKey() // when tap outside then close.
+        }
     }
 }
