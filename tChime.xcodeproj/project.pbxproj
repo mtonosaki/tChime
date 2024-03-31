@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E113509E2BB93E98008873B2 /* AppDelegate+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = E113509D2BB93E98008873B2 /* AppDelegate+General.swift */; };
+		E11350A02BB942C0008873B2 /* AppDelegate+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E113509F2BB942C0008873B2 /* AppDelegate+Notification.swift */; };
 		E19349AB2BB8D47700122258 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19349AA2BB8D47700122258 /* MenuView.swift */; };
 		E19349AF2BB928F300122258 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19349AE2BB928F300122258 /* Colors.xcassets */; };
 		E19349B12BB9295D00122258 /* BrandTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19349B02BB9295D00122258 /* BrandTheme.swift */; };
@@ -15,7 +17,24 @@
 		E1B586552BB7877A00BE4ED1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1B586542BB7877A00BE4ED1 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E113509C2BB93D02008873B2 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		E113508A2BB93D02008873B2 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		E113508C2BB93D02008873B2 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		E113509D2BB93E98008873B2 /* AppDelegate+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+General.swift"; sourceTree = "<group>"; };
+		E113509F2BB942C0008873B2 /* AppDelegate+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Notification.swift"; sourceTree = "<group>"; };
 		E19349AA2BB8D47700122258 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		E19349AE2BB928F300122258 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		E19349B02BB9295D00122258 /* BrandTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandTheme.swift; sourceTree = "<group>"; };
@@ -37,10 +56,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E11350892BB93D02008873B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E113508A2BB93D02008873B2 /* UserNotifications.framework */,
+				E113508C2BB93D02008873B2 /* UserNotificationsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E1B586412BB7877800BE4ED1 = {
 			isa = PBXGroup;
 			children = (
 				E1B5864C2BB7877900BE4ED1 /* tChime */,
+				E11350892BB93D02008873B2 /* Frameworks */,
 				E1B5864B2BB7877900BE4ED1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,6 +87,8 @@
 			children = (
 				E1B586532BB7877A00BE4ED1 /* Preview Content */,
 				E1B5864D2BB7877900BE4ED1 /* tChimeApp.swift */,
+				E113509D2BB93E98008873B2 /* AppDelegate+General.swift */,
+				E113509F2BB942C0008873B2 /* AppDelegate+Notification.swift */,
 				E19349AA2BB8D47700122258 /* MenuView.swift */,
 				E19349B02BB9295D00122258 /* BrandTheme.swift */,
 				E1B586512BB7877A00BE4ED1 /* Assets.xcassets */,
@@ -85,6 +116,7 @@
 				E1B586462BB7877800BE4ED1 /* Sources */,
 				E1B586472BB7877800BE4ED1 /* Frameworks */,
 				E1B586482BB7877800BE4ED1 /* Resources */,
+				E113509C2BB93D02008873B2 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -146,6 +178,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E113509E2BB93E98008873B2 /* AppDelegate+General.swift in Sources */,
+				E11350A02BB942C0008873B2 /* AppDelegate+Notification.swift in Sources */,
 				E19349B12BB9295D00122258 /* BrandTheme.swift in Sources */,
 				E19349AB2BB8D47700122258 /* MenuView.swift in Sources */,
 				E1B5864E2BB7877900BE4ED1 /* tChimeApp.swift in Sources */,
@@ -276,10 +310,12 @@
 		E1B5865A2BB7877A00BE4ED1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = tChime/tChime.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -307,10 +343,12 @@
 		E1B5865B2BB7877A00BE4ED1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = tChime/tChime.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
