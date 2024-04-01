@@ -13,26 +13,6 @@ struct MenuView: View {
     let width = 200.0
     let height = 110.0
     
-    init() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.sound]) { success, error in
-            if success {
-                print("Notification all set !!")
-                
-                let content = UNMutableNotificationContent()
-                content.title = "hoge"
-                content.subtitle = "fuga"
-                content.sound = UNNotificationSound.criticalSoundNamed(UNNotificationSoundName("SchoolBell"))
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
-                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                UNUserNotificationCenter.current().add(request)
-                
-            } else {
-                print(error?.localizedDescription ?? "Notification init error")
-                // TODO: show error message in this view to be modified the permission
-            }
-        }
-    }
-    
     var body: some View {
         ZStack {
             // HEADER Caption
