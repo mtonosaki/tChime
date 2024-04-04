@@ -12,6 +12,7 @@ extension AppDelegete : UNUserNotificationCenterDelegate {
     
     // WHEN RECEIVE NOTIFICATION
     func userNotificationCenter( _ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        Scheduler.setNextChime()
         print(">>> will present")
         completionHandler([.sound])
     }
