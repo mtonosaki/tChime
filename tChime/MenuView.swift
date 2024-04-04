@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import UserNotifications
 
 struct MenuView: View {
     let width = 200.0
@@ -22,8 +21,8 @@ struct MenuView: View {
             
             // Quit Button
             Button() {
-                NSApplication.shared.terminate(nil)
-//                NSApp.terminate(self)
+//                NSApplication.shared.terminate(nil)
+                NSApp.terminate(self)
             } label: {
                 Label("Quit", systemImage: "clear")
             }
