@@ -41,7 +41,7 @@ class Scheduler {
                         let content = UNMutableNotificationContent()
                         content.title = f.string(from: time)
                         content.subtitle = "break time ☕️"
-                        content.sound = UNNotificationSound(named: UNNotificationSoundName("hoge"))
+                        content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: "sound.caf"))
                         
                         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(secTar - secNow), repeats: false)
                         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
