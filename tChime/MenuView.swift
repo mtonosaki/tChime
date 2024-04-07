@@ -11,17 +11,16 @@ import SwiftUI
 struct MenuView: View {
     let width = 200.0
     let height = 110.0
-    
+
     var body: some View {
         ZStack {
             // HEADER Caption
             Text("tChime - No1")
                 .frame(width: self.width, height: self.height, alignment: .topLeading)
                 .padding(8)
-            
+
             // Quit Button
             Button() {
-//                NSApplication.shared.terminate(nil)
                 NSApp.terminate(self)
             } label: {
                 Label("Quit", systemImage: "clear")

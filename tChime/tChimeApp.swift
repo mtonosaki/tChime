@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct tChimeApp: App {
     @NSApplicationDelegateAdaptor(AppDelegete.self) var appDelegate
-    
+
     var body: some Scene {
         Settings {
         }
