@@ -11,19 +11,23 @@ import UserNotifications
 class AppDelegete: NSObject, NSApplicationDelegate {
     var statusBarItem: NSStatusItem!
     var popover = NSPopover()
-    
+
     func applicationDidFinishLaunching(_ notification: Notification) {
         let center = UNUserNotificationCenter.current()
         center.delegate = self
         prepareScheduleNotification()
         prepareMenuBarIcon()
+
+        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { timer in
+            Scheduler.shared.setNextChime()
+        }
     }
-    
+
     func prepareMenuBarIcon() {
         popover.behavior = .transient
         popover.contentViewController = NSHostingController(rootView: MenuView())
         self.statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.variableLength))
-        
+
         guard let button = self.statusBarItem.button else { return }
         let image: NSImage = {
             let ratio = $0.size.height / $0.size.width
@@ -34,7 +38,7 @@ class AppDelegete: NSObject, NSApplicationDelegate {
         button.image = image
         button.action = #selector(menuButtonAction(sender:))
     }
-    
+
     @objc func menuButtonAction(sender: AnyObject) {
         guard let button = self.statusBarItem.button else { return }
         if self.popover.isShown {
