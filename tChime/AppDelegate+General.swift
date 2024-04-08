@@ -18,8 +18,8 @@ class AppDelegete: NSObject, NSApplicationDelegate {
         prepareScheduleNotification()
         prepareMenuBarIcon()
 
-        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { timer in
-            Scheduler.shared.setNextChime()
+        Timer.scheduledTimer(withTimeInterval: 3.217, repeats: true) { timer in
+            Scheduler.shared.setNextChimeWhenRequested()
         }
     }
 
@@ -37,6 +37,10 @@ class AppDelegete: NSObject, NSApplicationDelegate {
         }(NSImage(named: "MenuIcon")!)
         button.image = image
         button.action = #selector(menuButtonAction(sender:))
+    }
+
+    func applicationWillTerminate(_ notification: Notification) {
+        cleanupNotification()
     }
 
     @objc func menuButtonAction(sender: AnyObject) {
