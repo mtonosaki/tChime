@@ -27,7 +27,7 @@ final public class Scheduler {
         self.isSetRequested = true
     }
 
-    func setNextChime() {
+    func setNextChimeWhenRequested() {
         if(!self.isSetRequested) {
             return
         }
@@ -38,27 +38,39 @@ final public class Scheduler {
         f.dateStyle = .none
         f.dateFormat = "HH:mm:ss"
 
-        UNUserNotificationCenter.current().requestAuthorization(options: [.sound]) { success, error in
+        var minDiff = 8640000.0
+        var nextTimeMessage: (time: Date, message: String)? = nil
+        let nowHms = f.string(from: Date()).split(separator: ":")
+        let nowSeconds = Int(nowHms[0])! * 3600 + Int(nowHms[1])! * 60 + Int(nowHms[2])!
+
+        for timeMessage in self.times {
+            let tarHms = f.string(from: timeMessage.time).split(separator: ":")
+            let tarSeconds = Int(tarHms[0])! * 3600 + Int(tarHms[1])! * 60 + Int(tarHms[2])!
+
+            let diff = Double(tarSeconds - nowSeconds)
+            if(diff > 1 && diff < minDiff) {
+                minDiff = diff
+                nextTimeMessage = timeMessage
+            }
+        }
+        guard let timeMessage = nextTimeMessage else {
+            print("No more schedule")
+            return
+        }
+
+        let targetTimeStr = f.string(from: timeMessage.time)
+        print(">> Next chime at", targetTimeStr)
+        let content = UNMutableNotificationContent()
+        content.title = f.string(from: timeMessage.time)
+        content.subtitle = timeMessage.message
+//        content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: "sound.caf"))
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: minDiff, repeats: false)
+        let request = UNNotificationRequest(identifier: "tChime." + targetTimeStr, content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().requestAuthorization(options: []) { success, error in
             if success {
-                for timeMessage in self.times {
-                    let nowHms = f.string(from: Date()).split(separator: ":")
-                    let nowSeconds = Int(nowHms[0])! * 3600 + Int(nowHms[1])! * 60 + Int(nowHms[2])!
-                    let tarHms = f.string(from: timeMessage.time).split(separator: ":")
-                    let tarSeconds = Int(tarHms[0])! * 3600 + Int(tarHms[1])! * 60 + Int(tarHms[2])!
-
-                    if(tarSeconds > nowSeconds) {
-                        print(">> Next chime at", tarHms.joined(separator: ":"))
-                        let content = UNMutableNotificationContent()
-                        content.title = f.string(from: timeMessage.time)
-                        content.subtitle = timeMessage.message
-                        content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: "sound.caf"))
-
-                        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(tarSeconds - nowSeconds), repeats: false)
-                        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                        UNUserNotificationCenter.current().add(request)
-                        break
-                    }
-                }
+                UNUserNotificationCenter.current().add(request)
             } else {
                 print(error?.localizedDescription ?? "Notification init error")
                 // TODO: show error message in this view to be modified the permission

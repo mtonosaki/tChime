@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E113509E2BB93E98008873B2 /* AppDelegate+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = E113509D2BB93E98008873B2 /* AppDelegate+General.swift */; };
 		E11350A02BB942C0008873B2 /* AppDelegate+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E113509F2BB942C0008873B2 /* AppDelegate+Notification.swift */; };
+		E12396B02BC3687000194DDC /* tChime.caf in Resources */ = {isa = PBXBuildFile; fileRef = E12396AF2BC3687000194DDC /* tChime.caf */; };
 		E13F28932BBF614500A3A55E /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13F28922BBF614500A3A55E /* Scheduler.swift */; };
 		E19349AB2BB8D47700122258 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19349AA2BB8D47700122258 /* MenuView.swift */; };
 		E19349AF2BB928F300122258 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19349AE2BB928F300122258 /* Colors.xcassets */; };
@@ -16,6 +17,7 @@
 		E1B5864E2BB7877900BE4ED1 /* tChimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B5864D2BB7877900BE4ED1 /* tChimeApp.swift */; };
 		E1B586522BB7877A00BE4ED1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1B586512BB7877A00BE4ED1 /* Assets.xcassets */; };
 		E1B586552BB7877A00BE4ED1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1B586542BB7877A00BE4ED1 /* Preview Assets.xcassets */; };
+		E1FC259A2BC3846000F56442 /* SoundHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC25992BC3846000F56442 /* SoundHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +38,7 @@
 		E113508C2BB93D02008873B2 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		E113509D2BB93E98008873B2 /* AppDelegate+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+General.swift"; sourceTree = "<group>"; };
 		E113509F2BB942C0008873B2 /* AppDelegate+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Notification.swift"; sourceTree = "<group>"; };
+		E12396AF2BC3687000194DDC /* tChime.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tChime.caf; sourceTree = "<group>"; };
 		E13F28922BBF614500A3A55E /* Scheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
 		E19349AA2BB8D47700122258 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		E19349AE2BB928F300122258 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -45,6 +48,7 @@
 		E1B586512BB7877A00BE4ED1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1B586542BB7877A00BE4ED1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E1B586562BB7877A00BE4ED1 /* tChime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tChime.entitlements; sourceTree = "<group>"; };
+		E1FC25992BC3846000F56442 /* SoundHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +98,11 @@
 				E19349AA2BB8D47700122258 /* MenuView.swift */,
 				E19349B02BB9295D00122258 /* BrandTheme.swift */,
 				E13F28922BBF614500A3A55E /* Scheduler.swift */,
+				E1FC25992BC3846000F56442 /* SoundHandler.swift */,
 				E1B586512BB7877A00BE4ED1 /* Assets.xcassets */,
 				E19349AE2BB928F300122258 /* Colors.xcassets */,
 				E1B586562BB7877A00BE4ED1 /* tChime.entitlements */,
+				E12396AF2BC3687000194DDC /* tChime.caf */,
 			);
 			path = tChime;
 			sourceTree = "<group>";
@@ -170,6 +176,7 @@
 			files = (
 				E19349AF2BB928F300122258 /* Colors.xcassets in Resources */,
 				E1B586552BB7877A00BE4ED1 /* Preview Assets.xcassets in Resources */,
+				E12396B02BC3687000194DDC /* tChime.caf in Resources */,
 				E1B586522BB7877A00BE4ED1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,6 +194,7 @@
 				E13F28932BBF614500A3A55E /* Scheduler.swift in Sources */,
 				E19349AB2BB8D47700122258 /* MenuView.swift in Sources */,
 				E1B5864E2BB7877900BE4ED1 /* tChimeApp.swift in Sources */,
+				E1FC259A2BC3846000F56442 /* SoundHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
